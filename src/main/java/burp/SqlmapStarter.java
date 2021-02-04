@@ -35,9 +35,9 @@ public class SqlmapStarter implements Runnable {
                 command = String.format("%s \\\"%s\\\" -r \\\"%s\\\" %s",Config.getPythonName(),Config.getSqlmapPath(),Config.getRequstFilePath(),optionCommand);
                 cmds.add("osascript");
                 cmds.add("-e");
-                String cmd = "tell application \"Terminal\" \n" +
-                        "        activate\n" +
-                        "        do script \"%s\"\n" +
+                String cmd = "tell application \"iTerm\" \n" +
+                        "        create window with default profile\n" +
+                        "        tell current session of current window to write text \"%s\"\n" +
                         "end tell";
                 cmds.add(String.format(cmd,command));
                 //BurpExtender.stdout.println(String.format(cmd,command));
